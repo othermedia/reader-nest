@@ -35,10 +35,12 @@ private
   
   def process_results(results)
     results.each do |tweet|
-      time = Date.parse(tweet.created_at)
-      in_db = Tweet.find_by_user_and_created_at(tweet.from_user, time)
+      time = Time.parse(tweet.created_at).strftime('%Y-%m-%d %H:%M:%S')
+      user = tweet.user ? tweet.user.screen_name : tweet.from_user
+      in_db = Tweet.find_by_user_and_created_at(user, time)
       next unless in_db.nil?
-      Tweet.create(:user => tweet.from_user, :text => tweet.text, :created_at => time)
+      puts "#{ user }: #{ tweet.text }\n\n"
+      Tweet.create(:user => user, :text => tweet.text, :created_at => time)
     end
   end
   

@@ -9,12 +9,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090707152037) do
+ActiveRecord::Schema.define(:version => 20090707163717) do
 
   create_table "tweets", :force => true do |t|
     t.datetime "created_at", :null => false
     t.string   "user",       :null => false
     t.text     "text",       :null => false
   end
+
+  add_index "tweets", ["user", "created_at"], :name => "index_tweets_on_user_and_created_at"
 
 end
