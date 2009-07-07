@@ -1,0 +1,29 @@
+<form id="searchForm" method="GET" action="/search">
+  <label for="q">Search</label>
+  <input type="text" name="q" id="q">
+  <input type="submit" value="Go">
+</form>
+
+<form id="userForm" method="GET" action="/user">
+  <div class="form=row">
+    <label for="id">User</label>
+    <input type="text" name="id" id="id">
+  </div>
+  <div class="form-row">
+    <label for="count">Per page</label>
+    <input type="text" name="count" id="count" value="25">
+  </div>
+  <input type="submit" value="Go">
+</form>
+
+<% if defined?(@tweets) %>
+  <div class="tweets">
+    <% @tweets.each do |mash| %>
+      <div class="tweet">
+        <img width="48" height="48" src="<%= (mash.user || mash).profile_image_url %>">
+        <p><%= mash.text %></p>
+      </div>
+    <% end %>
+  </div>
+<% end %>
+

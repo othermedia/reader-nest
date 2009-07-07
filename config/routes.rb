@@ -34,6 +34,13 @@ ActionController::Routing::Routes.draw do |map|
   # map.root :controller => "welcome"
 
   # See how all your routes lay out with "rake routes"
+  
+  map.root :controller => 'search', :action => 'firehose'
+  
+  map.with_options(:controller => 'search') do |url|
+    url.connect 'search',   :action => 'text'
+    url.connect 'user',     :action => 'user'
+  end
 
   # Install the default routes as the lowest priority.
   # Note: These default routes make all actions in every controller accessible via GET requests. You should
