@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090708110456) do
+ActiveRecord::Schema.define(:version => 20090708140728) do
 
   create_table "searches", :force => true do |t|
     t.integer  "user_id"
@@ -24,8 +24,10 @@ ActiveRecord::Schema.define(:version => 20090708110456) do
     t.datetime "created_at", :null => false
     t.string   "user",       :null => false
     t.text     "text",       :null => false
+    t.integer  "search_id"
   end
 
+  add_index "tweets", ["search_id", "created_at"], :name => "index_tweets_on_search_id_and_created_at"
   add_index "tweets", ["user", "created_at"], :name => "index_tweets_on_user_and_created_at"
 
   create_table "users", :force => true do |t|

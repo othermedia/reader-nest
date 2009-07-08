@@ -15,4 +15,9 @@ class SearchController < ApplicationController
     @search = @user.searches.create(params[:search])
     redirect_to :action => 'index'
   end
+  
+  def show
+    @search = Search.find(params[:id])
+    @tweets = @search.tweets.find(:all, :order => 'created_at DESC')
+  end
 end

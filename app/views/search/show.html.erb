@@ -1,0 +1,11 @@
+<h2>Latest tweets matching "<%=h @search.phrase %>"</h2>
+
+<ul>
+  <% @tweets.each do |tweet| %>
+    <li>
+      <%= link_to h(tweet.user), "http://twitter.com/#{tweet.user}" %>
+      <%= tweet.text %>
+    </li>
+  <% end %>
+</ul>
+
