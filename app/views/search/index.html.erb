@@ -1,0 +1,8 @@
+<h2>Your saved searches</h2>
+
+<ul>
+  <% @searches.each do |search| %>
+    <li><%=h search.phrase %></li>
+  <% end %>
+</ul>
+

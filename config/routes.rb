@@ -38,8 +38,7 @@ ActionController::Routing::Routes.draw do |map|
   map.root :controller => 'search', :action => 'firehose'
   
   map.with_options(:controller => 'search') do |url|
-    url.connect 'search',   :action => 'text'
-    url.connect 'user',     :action => 'user'
+    url.connect 'new',      :action => 'create'
   end
   
   map.with_options(:controller => 'users') do |url|

@@ -13,6 +13,6 @@ class UsersController < ApplicationController
     return flash.now[:error] = "No such user" if user.nil?
     return flash.now[:error] = "Incorrect password" unless user.has_password?(params[:password])
     session[:user] = user.id
-    redirect_to root_url
+    redirect_to :controller => 'search'
   end
 end

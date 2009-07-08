@@ -1,0 +1,11 @@
+<h2>Create search</h2>
+
+<% form_for(:search) do |f| %>
+  <div class="form-row">
+    <%= f.label :phrase %> <%= f.text_field :phrase %>
+  </div>
+  <div class="form-row">
+    <%= f.submit 'Save' %>
+  </div>
+<% end %>
+
