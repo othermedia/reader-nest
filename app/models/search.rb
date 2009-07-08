@@ -15,7 +15,7 @@ private
     time = Time.parse(tweet.created_at).strftime('%Y-%m-%d %H:%M:%S')
     user = tweet.user ? tweet.user.screen_name : tweet.from_user
     
-    in_db = Tweet.find_by_user_and_created_at(user, time)
+    in_db = tweets.find_by_user_and_created_at(user, time)
     return unless in_db.nil?
     
     tweets.create(:user => user, :text => tweet.text, :created_at => time)
