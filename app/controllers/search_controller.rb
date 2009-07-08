@@ -1,4 +1,6 @@
 class SearchController < ApplicationController
+  layout 'main'
+  
   auth = Twitter::OAuth.new('none', 'such')
   TWIT = Twitter::Base.new(auth)
   

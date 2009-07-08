@@ -41,6 +41,11 @@ ActionController::Routing::Routes.draw do |map|
     url.connect 'search',   :action => 'text'
     url.connect 'user',     :action => 'user'
   end
+  
+  map.with_options(:controller => 'users') do |url|
+    url.connect 'signup',   :action => 'create'
+    url.connect 'login',    :action => 'login'
+  end
 
   # Install the default routes as the lowest priority.
   # Note: These default routes make all actions in every controller accessible via GET requests. You should
