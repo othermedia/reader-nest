@@ -18,6 +18,8 @@ class SearchController < ApplicationController
   
   def show
     @search = Search.find(params[:id])
-    @tweets = @search.tweets.find(:all, :order => 'created_at DESC')
+    @tweets = @search.tweets.paginate(:all, :order    => 'created_at DESC',
+                                            :per_page => 25,
+                                            :page     => params[:page])
   end
 end

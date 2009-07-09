@@ -1,5 +1,7 @@
 <h2>Latest tweets matching "<%=h @search.phrase %>"</h2>
 
+<%= will_paginate @tweets %>
+
 <ul class="tweets">
   <% @tweets.each do |tweet| %>
     <li class="tweet">
@@ -8,4 +10,6 @@
     </li>
   <% end %>
 </ul>
+
+<%= will_paginate @tweets %>
 
