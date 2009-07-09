@@ -3,18 +3,35 @@
   <head>
     <meta http-equiv="Content-type" content="text/html; charset=utf-8">
     <title>ReaderNest</title>
-    
+    <%= stylesheet_link_tag 'main' %>
   </head>
   <body>
+  <div id="container">
   
     <div id="header">
       <h1>ReaderNest</h1>
+      <%= render :partial => 'layouts/login_form' %>
+      <% if @user %>
+        <ul id="navigation">
+          <% @user.searches.each do |search| %>
+            <li><%= link_to h(search.phrase), :action => 'show', :id => search.id %></li>
+          <% end %>
+        </ul>
+
+        <p><%= link_to 'New search', :action => 'create' %></p>
+      <% else %>
+        <ul id="navigation">
+          <li><%= link_to 'Sign up', :controller => 'users', :action => 'create' %></li>
+        </ul>
+      <% end %>
+      <div class="clear"></div>
     </div>
     
     <div id="main">
       <%= yield %>
     </div>
   
+  </div>
   </body>
 </html>
 

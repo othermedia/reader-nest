@@ -1,9 +1,1 @@
-<h2>Your saved searches</h2>
 
-<ul>
-  <% @searches.each do |search| %>
-    <li><%= link_to h(search.phrase), :action => 'show', :id => search.id %></li>
-  <% end %>
-</ul>
-
-<p><%= link_to 'New search', :action => 'create' %></p>

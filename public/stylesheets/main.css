@@ -1,0 +1,66 @@
+body {
+    margin:         0;
+    padding:        0;
+    background:     #eee;
+    text-align:     center;
+    font:           16px/1.5 Helvetica, Arial, sans-serif;
+}
+
+#container {
+    text-align:     left;
+    margin:         0 auto;
+    width:          600px;
+}
+
+#header {
+    background:     #fff;
+    padding:        32px 32px 0;
+}
+
+h1 {
+    margin:         0 -32px;
+    font:           bold 72px Helvetica, Arial, sans-serif;
+    color:          #0084B4;
+    padding:        0 32px;
+    border-bottom:  1px solid #ccc;
+}
+
+#header #loginForm {
+    float:          right;
+    width:          268px;
+    margin:         0;
+    padding:        16px 0 16px 31px;
+    border-left:    1px solid #ccc;
+}
+
+.clear {
+    clear:          both;
+}
+
+ul.tweets {
+    margin:         2em 0;
+    padding:        0;
+    list-style:     none;
+}
+
+li.tweet {
+    clear:          left;
+    margin:         0 0 1px;
+    padding:        16px;
+    background:     #fff;
+}
+
+li.tweet img {
+    float:          left;
+}
+
+li.tweet p {
+    margin:         0 0 0 64px;
+}
+
+a {
+    font-weight:    bold;
+    color:          #0084B4;
+    text-decoration:none;
+}
+

@@ -1,11 +1,17 @@
 <% if defined?(@tweets) %>
-  <div class="tweets">
+  <ul class="tweets">
     <% @tweets.each do |mash| %>
-      <div class="tweet">
-        <img width="48" height="48" src="<%= (mash.user || mash).profile_image_url %>">
-        <p><%= mash.text %></p>
-      </div>
+      <% user = mash.user || mash %>
+      <li class="tweet">
+        <img width="48" height="48" src="<%= user.profile_image_url %>">
+        <p>
+          <a class="name" href="http://twitter.com/<%=h user.screen_name %>">
+            <%=h user.screen_name %>
+          </a>
+          <%= mash.text %></p>
+        <div class="clear"></div>
+      </li>
     <% end %>
-  </div>
+  </ul>
 <% end %>
 
