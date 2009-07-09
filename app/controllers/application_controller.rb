@@ -8,9 +8,13 @@ class ApplicationController < ActionController::Base
   # Scrub sensitive parameters from your log
   # filter_parameter_logging :password
   
-  def check_logged_in
+  def get_user
     @user = User.find(session[:user])
   rescue
-    redirect_to :controller => 'users', :action => 'login'
+  end
+  before_filter :get_user
+  
+  def check_logged_in
+    redirect_to :controller => 'users', :action => 'login' unless @user
   end
 end
